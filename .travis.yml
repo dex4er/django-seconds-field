@@ -1,0 +1,36 @@
+dist: xenial
+
+language: python
+
+matrix:
+  include:
+    - python: "3.7.3"
+      env: DJANGO_VERSION=2.2 TEST_LINT=yes
+
+    - python: "3.7.3"
+      env: DJANGO_VERSION=2.1
+
+    - python: "3.7.3"
+      env: DJANGO_VERSION=2.0
+
+    - python: "3.6"
+      env: DJANGO_VERSION=2.2
+
+    - python: "3.5"
+      env: DJANGO_VERSION=2.2
+
+    - python: "2.7"
+      env: DJANGO_VERSION=1.11
+
+    - python: "2.7"
+      env: DJANGO_VERSION=1.10
+
+env:
+  global:
+    - PIPENV_VERBOSITY=-1
+
+install:
+  - .travis/install.sh
+
+script:
+  - .travis/script.sh
