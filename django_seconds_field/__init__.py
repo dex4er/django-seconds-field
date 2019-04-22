@@ -29,7 +29,7 @@ class SecondsField(fields.DurationField):
         return [SecondsField.convert_durationfield_value]
 
     @staticmethod
-    def convert_durationfield_value(value, _expression, _connection):
+    def convert_durationfield_value(value, _expression, _connection, _context=None):
         if value is None:
             return value
         return datetime.timedelta(seconds=value)
